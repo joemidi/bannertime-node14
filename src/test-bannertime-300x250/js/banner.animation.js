@@ -54,14 +54,8 @@ Banner.prototype.hidePreloader = function () {
  * Animation timeline.
  */
 Banner.prototype.animate = function () {
-  var _this = this;
-
-  function loop() {
-    _this.timeline.gotoAndPlay('start');
-  }
-
-  this.timeline = gsap.timeline({ onComplete: loop })
+  this.timeline = gsap.timeline({ repeat: 3 })
     .addLabel('start', 0)
-    .to(this.logo, { duration: 2, autoAlpha: 1, scale: 0.7, delay: 1, ease: 'elastic.easeOut' }))
-    .to(this.logo, { duration: 1, autoAlpha: 0, scale: 0.4, delay: 1 }));
+    .to(this.logo, { duration: 2, autoAlpha: 1, scale: 0.7, delay: 1, ease: 'elastic.out(1, 0.3)' })
+    .to(this.logo, { duration: 1, autoAlpha: 0, scale: 0.4, delay: 1 });
 };
